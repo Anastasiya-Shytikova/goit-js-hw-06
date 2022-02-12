@@ -8,8 +8,11 @@ const ingredients = [
 ];
 const list = document.getElementById("ingredients");
 
-ingredients.forEach((item) => {
-    let li = document.createElement("li");
-    li.innerText = item;
-    list.appendChild(li);
-})
+const mapup = ingredients
+    .map((ingredient) => {
+        const resultLi = document.createElement("li");
+        resultLi.textContent = `${ingredient}`;
+        resultLi.classList.add('ingredient');
+        return resultLi;
+    });
+list.append(...mapup);
